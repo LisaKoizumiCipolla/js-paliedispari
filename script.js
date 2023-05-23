@@ -2,28 +2,32 @@
 const userChoice = prompt("Choose even or odd");
 const userNumber = parseInt(prompt("Choose a number between 1 and 5"));
 
+const pcNumber = pcRandomNumber(1,5);
+
+console.log(userChoice);
+
 console.log(userNumber);
 
-console.log(pcRandomNumber(1,5));
+console.log(pcNumber)
 
 function pcRandomNumber (minNumber, maxNumber){
     let randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
     return randomNumber;
 }
 
-let sum = userNumber + pcRandomNumber(1,5);
+let sum = userNumber + pcNumber;
 
 console.log(sum);
 
-function isResultEven (){
-    if (sum % 2 === 0){
+function isResultEven (number){
+    if (number % 2 === 0){
         return true;
-    } {
-        return false;
     }
+    return false;
+    
 }
 
-if (isResultEven() && userChoice == "even" ){
+if (isResultEven(sum) && userChoice.toLocaleLowerCase() == "even" ){
     console.log ("You won!");
 } else {
     console.log ("You lose");
@@ -57,3 +61,31 @@ const userWord = prompt ("Enter a string; ");
 const value = isThisAPalindrome(userWord);
 
 console.log(value);
+
+/**
+ * const userWord = prompt ("Type a word")
+ * 
+ * if (userWord === wordReverser(userWord)){
+ * console.log("the given word is a palindrome")
+ * } else {
+ * console.log("the given word is not palindrome")
+ * }
+ * 
+ * function isPalindrome(word){
+ * if( word.toLowerCase() === wordReverser(word).toLowerCase()){
+ * return true;
+ * }
+ * return false;
+ * }
+ * 
+ * 
+ * function wordReverser(wordToReverse){
+ * let reversedWord = "";
+ * for  (let index = wordToReverse. length -1; index >= 0 ;index--){
+ * reversedWord += wordToReverse[index].toLowerCase();
+ * }
+ * return reversedWord;
+ * }
+ * 
+ * 
+ */
