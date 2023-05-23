@@ -4,16 +4,14 @@ const userNumber = parseInt(prompt("Choose a number between 1 and 5"));
 
 console.log(userNumber);
 
-function pcRandomNumber (){
-    let randomNumber = Math.floor(Math.random() * 5) + 1;
+console.log(pcRandomNumber(1,5));
+
+function pcRandomNumber (minNumber, maxNumber){
+    let randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
     return randomNumber;
 }
 
-let risultato = pcRandomNumber();
-
-console.log (risultato);
-
-let sum = userNumber + risultato;
+let sum = userNumber + pcRandomNumber(1,5);
 
 console.log(sum);
 
@@ -25,7 +23,7 @@ function isResultEven (){
     }
 }
 
-if (isResultEven && userChoice == "even" ){
+if (isResultEven() && userChoice == "even" ){
     console.log ("You won!");
 } else {
     console.log ("You lose");
@@ -41,3 +39,21 @@ Determinare con una funzione se il risultato sia pari o dispari
 Confrontare il risultato con la scelta dell'utente
 Mostrare se l'utente abbia vinto
 */
+
+
+function isThisAPalindrome (userChoice){
+    const len = userWord.length;
+
+    for ( let i = 0 ; i < len / 2 ; i++){
+        if (userWord[i] !== userWord[len - 1 - i]){
+            return "it is not a palindrome";
+        }
+    }
+    return "It is a palindrome";
+}
+
+const userWord = prompt ("Enter a string; ");
+
+const value = isThisAPalindrome(userWord);
+
+console.log(value);
